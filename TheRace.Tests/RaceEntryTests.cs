@@ -57,7 +57,7 @@ namespace TheRace.Tests
 
             RaceEntry race = new RaceEntry();
 
-            Assert.Throws<InvalidOperationException>(() =>race.AddDriver(null));
+            Assert.Throws<InvalidOperationException>(() => race.AddDriver(null));
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace TheRace.Tests
 
             RaceEntry race = new RaceEntry();
             race.AddDriver(new UnitDriver("A", car));
-            Assert.Throws<InvalidOperationException>(() => race.AddDriver(new UnitDriver("A",car)));
+            Assert.Throws<InvalidOperationException>(() => race.AddDriver(new UnitDriver("A", car)));
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace TheRace.Tests
             UnitCar car = new UnitCar("A", 10, 10.5);
 
             RaceEntry race = new RaceEntry();
-            string returnedMessage =  race.AddDriver(new UnitDriver("A", car));
+            string returnedMessage = race.AddDriver(new UnitDriver("A", car));
             string expectedMessage = "Driver A added in race.";
             Assert.AreEqual(expectedMessage, returnedMessage);
         }
@@ -106,12 +106,12 @@ namespace TheRace.Tests
         {
             UnitCar car = new UnitCar("A", 10, 10.5);
             UnitCar carTwo = new UnitCar("B", 10, 10.5);
-            
+
 
             RaceEntry race = new RaceEntry();
             race.AddDriver(new UnitDriver("A", car));
             race.AddDriver(new UnitDriver("B", carTwo));
-            
+
             Assert.AreEqual(10, race.CalculateAverageHorsePower());
         }
     }
